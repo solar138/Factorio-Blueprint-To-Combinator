@@ -36,18 +36,6 @@ let replaceEntity = (entities, from, to, multiplier=1) => {
     }
 }
 
-let replaceEntities = (entities) => { 
-    replaceEntity(entities, "curved-rail-a", "rail", 3);
-    replaceEntity(entities, "curved-rail-b", "rail", 3);
-    replaceEntity(entities, "half-diagonal-rail", "rail", 2);
-    replaceEntity(entities, "elevated-straight-rail", "rail");
-    replaceEntity(entities, "elevated-curved-rail-a", "rail", 3);
-    replaceEntity(entities, "elevated-curved-rail-b", "rail", 3);
-    replaceEntity(entities, "elevated-half-diagonal-rail", "rail", 2);
-    replaceEntity(entities, "bob-red-inserter", "long-handed-inserter");
-    replaceEntity(entities, "se-core-miner", "se-core-miner-drill");
-}
-
 let convert = () => {
     let inputStringTextArea = document.getElementById("inputString");
     let outputStringTextArea = document.getElementById("outputString");
@@ -108,7 +96,6 @@ let convert = () => {
         });
     });
 
-    replaceEntities(entities);
     //console.log(entities);
 
     let blueprintDraft = {
