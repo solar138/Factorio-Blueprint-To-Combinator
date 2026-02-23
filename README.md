@@ -2,13 +2,8 @@
 
 ---
 
-# ARCHIVED - ARCHIVED - ARCHIVED
-
-This app has been moved to **Gaming Tools**:
-
-- Web app: [https://gaming-tools.jensforstmann.vercel.app/factorio/blueprint-to-constant-combinator](https://gaming-tools.jensforstmann.vercel.app/factorio/blueprint-to-constant-combinator)
-- Repository: [https://github.com/JensForstmann/gaming-tools](https://github.com/JensForstmann/gaming-tools)
-
-*Please change your favorites/bookmarks of your browser!*
+Updated by solar138 for some modded and 2.0 entities with different ids than their item forms. Will add more as they come up.
+- Web app: [https://factorio-blueprint-to-combinator.vercel.app/index.html](https://factorio-blueprint-to-combinator.vercel.app/index.html)
+- Repository: [https://github.com/solar138/Factorio-Blueprint-To-Combinator](https://github.com/solar138/Factorio-Blueprint-To-Combinator)
 
 ---
