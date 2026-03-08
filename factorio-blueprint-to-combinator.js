@@ -67,17 +67,30 @@ let convert = () => {
     if (json.blueprint) blueprints = [json];
     if (json.blueprint_book && json.blueprint_book.blueprints) blueprints = json.blueprint_book.blueprints;
 
+    console.log(blueprints);
+
     blueprints.forEach(blueprint => {
+        debugger;
         if (blueprint.blueprint && blueprint.blueprint.entities) blueprint.blueprint.entities.forEach(e => {
             let inc = convertEntity2Item(e.name).count;
+
             e.name = convertEntity2Item(e.name).item;
             if (entities[e.name] == undefined) entities[e.name] = 0;
             entities[e.name] += inc;
             if (e.items !== undefined) {
-                for (let name in e.items) {
-                    let count = e.items[name];
-                    if (entities[name] == undefined) entities[name] = 0;
-                    entities[name] += count;
+                if (Array.isArray(e.items)) {
+                    for (let item of e.items) {
+                        let name = item.id.name;
+                        let count = item.items.in_inventory.length;
+                        if (entities[name] == undefined) entities[name] = 0;
+                        entities[name] += count;
+                    }
+                } else {
+                    for (let name in e.items) {
+                        let count = e.items[name];
+                        if (entities[name] == undefined) entities[name] = 0;
+                        entities[name] += count;
+                    }
                 }
             }
         });
@@ -87,16 +100,26 @@ let convert = () => {
             if (entities[e.name] == undefined) entities[e.name] = 0;
             entities[e.name] += inc;
             if (e.items !== undefined) {
-                for (let name in e.items) {
-                    let count = e.items[name];
-                    if (entities[name] == undefined) entities[name] = 0;
-                    entities[name] += count;
+                if (Array.isArray(e.items)) {
+                    for (let item of e.items) {
+                        let name = item.id.name;
+                        let count = item.items.in_inventory.length;
+                        if (entities[name] == undefined) entities[name] = 0;
+                        entities[name] += count;
+                    }
+                } else {
+                    for (let name in e.items) {
+                        let count = e.items[name];
+                        if (entities[name] == undefined) entities[name] = 0;
+                        entities[name] += count;
+                    }
                 }
             }
         });
+
     });
 
-    //console.log(entities);
+    console.log(entities);
 
     let blueprintDraft = {
         "blueprint": {
