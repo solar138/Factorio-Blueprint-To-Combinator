@@ -36,6 +36,35 @@ let replaceEntity = (entities, from, to, multiplier=1) => {
     }
 }
 
+let onload = () => {
+    
+    let maxSignalCount = document.getElementById("maxSignalCount");
+
+    if (localStorage.getItem("maxSignalCount") !== null) {
+        maxSignalCount.value = localStorage.getItem("maxSignalCount");
+    }
+    let includeRequesterChests = document.getElementById("includeRequesterChests");
+    if (localStorage.getItem("includeRequesterChests") !== null) {
+        includeRequesterChests.checked = localStorage.getItem("includeRequesterChests") === "true";
+    }
+    let requestFromBufferChests = document.getElementById("requestFromBufferChests");
+    if (localStorage.getItem("requestFromBufferChests") !== null) {
+        requestFromBufferChests.checked = localStorage.getItem("requestFromBufferChests") === "true";
+    }
+
+    maxSignalCount.addEventListener("input", () => {
+        localStorage.setItem("maxSignalCount", maxSignalCount.value);
+    });
+    includeRequesterChests.addEventListener("input", () => {
+        localStorage.setItem("includeRequesterChests", includeRequesterChests.checked);
+    });
+    requestFromBufferChests.addEventListener("input", () => {
+        localStorage.setItem("requestFromBufferChests", requestFromBufferChests.checked);
+    });
+}
+
+window.onload = onload;
+
 let convert = () => {
     let inputStringTextArea = document.getElementById("inputString");
     let outputStringTextArea = document.getElementById("outputString");
